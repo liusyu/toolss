@@ -1,0 +1,14 @@
+1. 所有涉及到操作文档的对象必需认证
+2. AbstractDocument顶层实现类认证接口
+===========================================转换
+3. ConverDocument 文档转换类。提供接口给外部调用
+docToPdf(String docPath,String pdfPath)：基于本地路径和url
+docToPdf(InputStream inputStream, String pdfPath)：基于输入流
+4. Doc2Pdf ： 外部调用的操作类。
+==================================================插入文档内容
+5.InsertDocumentAbstract 文档插入类。提供接口给外部调用
+6.InsertDocument 文档插入实际操作类=============
+
+insertWaterImpl(String imgUrl,String sourceDoc,String targetDoc,String bookmark,String[] widthAndHeight) 在书签的位置杀入水印设置水印的宽高
+insertWaterImpl(String imgUrl,String sourceDoc,String targetDoc,String bookmark）在书签的位置杀入水印宽高70
+

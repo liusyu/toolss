@@ -4,10 +4,13 @@ import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 //@ConfigurationProperties(prefix = "spring.datasource")
+//@PropertySource("application.properties")
 @EnableJpaRepositories({"com.example.demo.core.dao"})
 public class DataSourceConfig {
 //    private static final String DATABASE_DRIVER = "db.driver";
@@ -24,6 +27,12 @@ public class DataSourceConfig {
     @Bean
     public DruidDataSource druidDataSource(){
         return new DruidDataSource();
+    }
+    @Bean
+    public PropertyConfigurer propertyConfigurer(){
+        PropertyConfigurer propertyConfigurer = new PropertyConfigurer();
+        propertyConfigurer.setIgnoreResourceNotFound(true);//propertyConfigurer.setLocations(locations);
+        return propertyConfigurer;
     }
     /**
      * 配置监控服务器

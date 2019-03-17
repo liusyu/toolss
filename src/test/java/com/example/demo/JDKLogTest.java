@@ -26,6 +26,8 @@ public class JDKLogTest {
     public void test01() {
         // 级别从上往下依次降低
        // Logs.info("aaaa");
+        System.out.println(String.format("%05d",2));
+
 
     }
 

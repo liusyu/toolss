@@ -1,6 +1,8 @@
 package com.example.demo.core.web;
 
 import com.example.demo.common.Response;
+import com.example.demo.common.log.log.LogNameEmun;
+import com.example.demo.common.log.log.Logs;
 import com.example.demo.core.entiry.User;
 import com.example.demo.core.servers.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ public class UserController {
     @RequestMapping("/login")
     public Object login(String name,String password){
 
+        Logs.write("aaa",LogNameEmun.API_Info);
         User user = userService.getNameAndPassword(name, password);
         if(user == null)
             return new Response<>("404,用户不存在或密码错误");
